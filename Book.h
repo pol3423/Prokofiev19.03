@@ -26,7 +26,6 @@ public:
         cout << "Input author of book: ";
         cin >> Author;
         cout << "Input published year of book: ";
-        cin >> PubYear;
         try
         {
             cin >> PubYear;
