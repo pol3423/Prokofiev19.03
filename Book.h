@@ -7,8 +7,8 @@ using namespace std;
 class Book
 {
 private:
-    std::string Title;
-    std::string Author;
+    string Title;
+    string Author;
     int PubYear;
 public:
     Book(std::string title = "", std::string author = "", int pubyear = 0)
@@ -27,5 +27,18 @@ public:
         cin >> Author;
         cout << "Input published year of book: ";
         cin >> PubYear;
+        try
+        {
+            cin >> PubYear;
+            if (cin.fail() || PubYear < 0)
+                throw runtime_error("Invalid year");
+        }
+        catch (...)
+        {
+            std::cout << "Error: Year must be a positive number. Setting year to 0." << std::endl;
+            PubYear = 0;
+            cin.clear();
+            cin.ignore(10000, '\n');
+        }
     }
 };
